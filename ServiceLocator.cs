@@ -17,7 +17,7 @@ namespace Expedia
 			}
 		}
 		
-		private List<Discount> discounts;
+		private List<Discount> discounts; // go Flo, go pro
 		private List<Flight> flights;
 		private List<Car> cars;
 		

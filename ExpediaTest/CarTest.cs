@@ -73,7 +73,7 @@ namespace ExpediaTest
 
             mocks.VerifyAll();
         }
-    [TestMethod]
+        [TestMethod]
         public void TestMilageProperty()
         {
             IDatabase mockDB = mocks.StrictMock<IDatabase>();
@@ -95,6 +95,28 @@ namespace ExpediaTest
             Assert.AreEqual(expected2, result);
 
             mocks.VerifyAll();            
+        }
+        [TestMethod]
+        public void TestObjectMother(){
+            IDatabase mockDB = mocks.StrictMock<IDatabase>();
+            Int32 expected1 = 1509;
+            Int32 expected2 = 1900;
+            Expect.Call(mockDB.Miles).Return(expected1);
+            Expect.Call(mockDB.Miles).Return(expected2);
+
+            mocks.ReplayAll();
+            var car1 = ObjectMother.Saab();
+            car1.Database = mockDB;
+            var car2 = ObjectMother.BMW();
+            car2.Database = mockDB;
+
+            Int32 result = car1.Mileage;
+            Assert.AreEqual(expected1, result);
+            
+            result = car2.Mileage;
+            Assert.AreEqual(expected2, result);
+
+            mocks.VerifyAll();    
         }
 	}
 }
