@@ -14,7 +14,7 @@ namespace Expedia
 		
 		public IDatabase Database
 		{
-			get; set;	
+			get; set;
 		}
 		
         //Get's the current mileage associated with the car
@@ -22,7 +22,7 @@ namespace Expedia
 		{
 			get
 			{
-				return Database.Miles;	
+				return Database.Miles;
 			}
 		}
 
